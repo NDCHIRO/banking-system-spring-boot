@@ -1,8 +1,9 @@
-package com.spring.BankingSystemSpring.restcontroller;
+package com.spring.BankingSystemSpring.restcontroller.clientRestController;
 
 import com.spring.BankingSystemSpring.Entity.Client;
+import com.spring.BankingSystemSpring.ServiceUtility.BankSystemException;
+import com.spring.BankingSystemSpring.service.accountService.AccountService;
 import com.spring.BankingSystemSpring.service.clientService.ClientService;
-import com.spring.BankingSystemSpring.service.clientService.ClientServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
-public class BankSystemRestController {
+@RequestMapping("/clientapi")
+public class ClientRestController {
     private ClientService clientService;
     @Autowired
-    public BankSystemRestController(ClientService theClientService)
+    public ClientRestController(ClientService theClientService)
     {
         clientService=theClientService;
     }
@@ -33,25 +34,21 @@ public class BankSystemRestController {
 
     @Transactional
     @PostMapping("/clients")
-    public Client save(@RequestBody Client client)
-    {
+    public Client save(@RequestBody Client client) throws BankSystemException {
         return clientService.save(client);
     }
 
-    /* it doesn't work correct because of merge method in DAO ,try again
     @PutMapping("/clients")
-    public Client update(@RequestBody Client client)
-    {
+    public Client update(@RequestBody Client client) throws BankSystemException {
         return clientService.save(client);
     }
-    */
+
     @DeleteMapping("/clients/{clientId}")
     @Transactional
-    public String deleteById(@PathVariable int clientId)
-    {
+    public String deleteById(@PathVariable int clientId) throws BankSystemException {
         Client client=clientService.findById(clientId);
         if(client == null)
-            throw new RuntimeException("client not found");
+            throw new BankSystemException("client not found");
         clientService.deleteById(clientId);
         return "client no."+clientId+" deleted";
     }
