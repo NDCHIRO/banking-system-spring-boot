@@ -20,8 +20,8 @@ public class ClientDAOImp implements ClientDAO {
     @Override
     public List<Client> findAll() {
         TypedQuery<Client> query = entityManager.createQuery("from Client",Client.class);
-        List<Client> employeeList = query.getResultList();
-        return employeeList;
+        List<Client> clientList = query.getResultList();
+        return clientList;
     }
 
     @Override
@@ -34,8 +34,8 @@ public class ClientDAOImp implements ClientDAO {
     public Client save(Client theClient) {
         //if id=0 then it will insert a new employee
         // else it will update the employee's data
-        Client employee = entityManager.merge(theClient);
-        return employee;
+        Client client = entityManager.merge(theClient);
+        return client;
     }
 
     @Override
@@ -43,4 +43,6 @@ public class ClientDAOImp implements ClientDAO {
         Client client = entityManager.find(Client.class,clientId);
         entityManager.remove(client);
     }
+
+
 }

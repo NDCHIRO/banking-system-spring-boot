@@ -19,6 +19,7 @@ public class BankSystemRestController {
         clientService=theClientService;
     }
 
+    //  url:  http://localhost:8086/api/clients
     @GetMapping("/clients")
     public List<Client> findAll()
     {
@@ -36,6 +37,14 @@ public class BankSystemRestController {
     {
         return clientService.save(client);
     }
+
+    /* it doesn't work correct because of merge method in DAO ,try again
+    @PutMapping("/clients")
+    public Client update(@RequestBody Client client)
+    {
+        return clientService.save(client);
+    }
+    */
     @DeleteMapping("/clients/{clientId}")
     @Transactional
     public String deleteById(@PathVariable int clientId)
