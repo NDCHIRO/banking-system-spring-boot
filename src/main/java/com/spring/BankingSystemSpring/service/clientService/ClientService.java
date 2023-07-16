@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ClientService {
     public List<Client> findAll();
-    public Client findById(int employeeId);
-    public Client save(Client theEmployee) throws BankSystemException;
-    public void deleteById(int employeeId);
+    public Client findById(int clientId);
+    public Client save(Client theClient) throws BankSystemException;
+    public void deleteById(int clientId);
 }

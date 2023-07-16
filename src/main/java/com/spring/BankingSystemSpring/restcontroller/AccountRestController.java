@@ -1,4 +1,4 @@
-package com.spring.BankingSystemSpring.restcontroller.accountRestController;
+package com.spring.BankingSystemSpring.restcontroller;
 
 import com.spring.BankingSystemSpring.Entity.Account;
 import com.spring.BankingSystemSpring.Entity.Client;
@@ -49,6 +49,6 @@ public class AccountRestController {
         if(account == null)
             throw new BankSystemException("account no."+accountId +" not found");
         accountService.deleteById(accountId);
-        return "client no."+accountId+" deleted";
+        return "account no."+accountId+" deleted";
     }
 }

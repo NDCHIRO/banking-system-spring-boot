@@ -42,8 +42,7 @@ public class AccountServiceImp implements AccountService {
     }
 
     @Override
-    public String deleteById(int accountId) {
+    public void deleteById(int accountId) {
         accountRepository.deleteById(accountId);
-        return "account no."+accountId+" deleted";
     }
 }

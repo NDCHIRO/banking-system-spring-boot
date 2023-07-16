@@ -1,6 +1,6 @@
 package com.spring.BankingSystemSpring.repository.transactionRepository;
 
-import org.hibernate.Transaction;
+import com.spring.BankingSystemSpring.Entity.Transaction;
 import org.hibernate.dialect.H2Dialect;
 import org.springframework.data.jpa.repository.JpaRepository;
 

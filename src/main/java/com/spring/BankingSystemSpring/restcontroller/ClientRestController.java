@@ -1,4 +1,4 @@
-package com.spring.BankingSystemSpring.restcontroller.clientRestController;
+package com.spring.BankingSystemSpring.restcontroller;
 
 import com.spring.BankingSystemSpring.Entity.Client;
 import com.spring.BankingSystemSpring.ServiceUtility.BankSystemException;

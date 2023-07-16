@@ -10,6 +10,6 @@ public interface AccountService {
     public List<Account> findAll();
     public Account findById(int accountId) throws BankSystemException;
     public Account save(Account account) throws BankSystemException;
-    public String deleteById(int accountId);
+    public void deleteById(int accountId);
 
 }

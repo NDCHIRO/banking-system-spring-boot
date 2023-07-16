@@ -39,7 +39,7 @@ public class ClientServiceImp implements ClientService{
         if(result.isPresent())      //it means if result is not null
             client=result.get();
         else    // if result is null
-            throw new RuntimeException("Employee no."+clientId+" doesn't exist");
+            throw new RuntimeException("client no."+clientId+" doesn't exist");
 
         return client;
     }
